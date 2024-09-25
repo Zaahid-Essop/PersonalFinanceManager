@@ -53,3 +53,27 @@ def main():
                 add_transaction(transactions, date, description, amount, 'Income')
             except ValueError:
                 print("Invalid amount. Please enter a numeric value.")
+        elif choice == '2':
+            try:
+                date = input("Enter date (YYYY-MM-DD): ")
+                amount = float(input("Enter Expense amount: "))
+                description = input("Enter description: ")
+                add_transaction(transactions, date, description, -abs(amount), 'Expense')  # Negative amount for expenses
+            except ValueError:
+                print("Invalid amount. Please enter a numeric value.")
+        elif choice == '3':
+            view_transactions(transactions)
+        elif choice == '4':
+            view_transactions(transactions)
+            description = input("Enter the transaction description to delete: ")
+            if not delete_transaction(transactions, description):
+                print("Transaction could not be deleted.")
+        elif choice == '5':
+            print("Exiting Personal Finance Manager.")
+            break
+        else:
+            print("Invalid choice. Please select a valid option.")
+
+
+if __name__ == "__main__":
+    main()
