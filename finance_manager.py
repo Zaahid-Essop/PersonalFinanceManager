@@ -22,3 +22,13 @@ def view_transactions(transactions):
             f"{idx + 1}. {transaction['type'].capitalize()} - {transaction['description']} - ${transaction['amount']}")
 
     return transactions
+
+def delete_transaction(transactions, description):
+    for idx, transaction in enumerate(transactions):
+        if transaction['description'].lower() == description.lower():
+            deleted = transactions.pop(idx)
+            print(
+                f"Deleted {deleted['type'].capitalize()} of ${deleted['amount']} for {deleted['description']}.")
+            return True
+    print("Transaction not found.")
+    return False
