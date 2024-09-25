@@ -11,3 +11,14 @@ def add_transaction(transactions, date, description, amount, transaction_type):
     transactions.append(transaction)
     print(f"{transaction_type.capitalize()} added successfully!")
     
+def view_transactions(transactions):
+    if not transactions:
+        print("No transactions found.")
+        return transactions
+
+    print("\nTransactions:")
+    for idx, transaction in enumerate(transactions):
+        print(
+            f"{idx + 1}. {transaction['type'].capitalize()} - {transaction['description']} - ${transaction['amount']}")
+
+    return transactions
