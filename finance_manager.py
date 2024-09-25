@@ -68,7 +68,11 @@ def main():
             description = input("Enter the transaction description to delete: ")
             if not delete_transaction(transactions, description):
                 print("Transaction could not be deleted.")
-
+        elif choice == '5':
+            print("Exiting Personal Finance Manager.")
+            break
+        else:
+            print("Invalid choice. Please select a valid option.")
 
 
 if __name__ == "__main__":
