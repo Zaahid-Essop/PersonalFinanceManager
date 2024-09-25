@@ -32,3 +32,24 @@ def delete_transaction(transactions, description):
             return True
     print("Transaction not found.")
     return False
+
+def main():
+    transactions = []
+
+    while True:
+        print("\nPersonal Finance Manager")
+        print("1. Add Income")
+        print("2. Add Expense")
+        print("3. View Transactions")
+        print("4. Delete Transaction")
+        print("5. Exit")
+        choice = input("Choose an option: ")
+
+        if choice == '1':
+            try:
+                date = input("Enter date (YYYY-MM-DD): ")
+                amount = float(input("Enter Income amount: "))
+                description = input("Enter description: ")
+                add_transaction(transactions, date, description, amount, 'Income')
+            except ValueError:
+                print("Invalid amount. Please enter a numeric value.")
